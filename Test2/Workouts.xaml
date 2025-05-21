@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Test2.Workouts"
+             Title="Workouts"
+                xmlns:local="clr-namespace:Test2.ViewModels"
+                x:DataType="local:WorkoutsViewModel"
+             Shell.FlyoutBehavior="Disabled"
+             Shell.NavBarIsVisible="False"
+             NavigationPage.HasNavigationBar="False">
+
+    <ScrollView>
+        <StackLayout HorizontalOptions="Center" Margin="20">
+            <Picker x:Name="EquipmentPicker" Title="Equpment" SelectedItem="{Binding equipment}">
+                <Picker.Items>
+                    <x:String>Basic gear</x:String>
+                    <x:String>No gear</x:String>
+                    <x:String>Fitness gear</x:String>
+                </Picker.Items>
+            </Picker>
+            <Label></Label>
+            <Picker x:Name="WorkoutTypetPicker" Title="Workout type" SelectedItem="{Binding workout_type}">
+                <Picker.Items>
+                    <x:String>Strengh</x:String>
+                    <x:String>Cardio</x:String>
+                    <x:String>Endurance</x:String>
+                </Picker.Items>
+            </Picker>
+            <Label></Label>
+            <Picker x:Name="BodyPartPicker" Title="Body part" SelectedItem="{Binding body_part}">
+                <Picker.Items>
+                    <x:String>Full body</x:String>
+                    <x:String>Upper body</x:String>
+                    <x:String>Lower body</x:String>
+                    <x:String>Core</x:String>
+                </Picker.Items>
+            </Picker>
+            <Label></Label>
+            <Picker x:Name="DifficultyPicker" Title="Difficulty" SelectedItem="{Binding difficulty}">
+                <Picker.Items>
+                    <x:String>Level I - Light</x:String>
+                    <x:String>Level II - Easy</x:String>
+                    <x:String>Level III - Normal</x:String>
+                    <x:String>Level IV - Hard</x:String>
+                    <x:String>Level V - Advanced</x:String>
+                </Picker.Items>
+            </Picker>
+            <Label></Label>
+            <Button
+                x:Name="LoginBtn"
+                Text="SHOW"
+                Command="{Binding StartButton}"
+                SemanticProperties.Hint="Loggs you in"
+
+                HorizontalOptions="Center" 
+                BackgroundColor="#001aab"
+                TextColor="White"
+                WidthRequest="300" />
+            
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

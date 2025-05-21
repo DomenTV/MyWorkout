@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Test2.About"
+             Title="About"
+             Shell.FlyoutBehavior="Disabled"
+             Shell.NavBarIsVisible="False"
+             NavigationPage.HasNavigationBar="False"
+             >
+
+    <StackLayout VerticalOptions="Center">
+
+        <Label Text="MyWorkout" HorizontalOptions="Center" TextColor="White" />
+        <Label Text="Developed to make exercise more accessible than ever" TextColor="White" HorizontalOptions="Center" FontAttributes="Italic"/>
+        <Label Text="Version 2.0" TextColor="#919191" HorizontalOptions="Center" />
+        <Label Text="2025 © Domen Šincek Nedeljković" TextColor="#919191" HorizontalOptions="Center" />
+
+
+    </StackLayout>
+</ContentPage>

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Test2.RegisterPage"
+             Title="RegisterPage"
+             xmlns:local="clr-namespace:Test2.ViewModels"
+             x:DataType="local:RegisterViewModel"
+             Shell.FlyoutBehavior="Disabled"
+             Shell.NavBarIsVisible="False"
+             NavigationPage.HasNavigationBar="False"
+             >
+    <Grid
+        RowDefinitions="150, Auto, Auto, 25, Auto, Auto, 50, Auto, 15, Auto"
+        ColumnDefinitions=".75*, .25*"
+        Padding="25"
+        >
+
+
+
+
+
+        <Label Grid.ColumnSpan="2"
+               
+                Text="Register"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="50"
+                TextColor="White"
+                HorizontalOptions="Center" 
+                />
+
+        <Label Grid.Row="1"
+               Grid.ColumnSpan="2"
+                Text="Email:"
+                
+                FontSize="Medium"
+                TextColor="White"
+                HorizontalOptions="Start" />
+
+
+
+        <Entry Grid.Row="2" 
+               Grid.ColumnSpan="2"
+               Text="{Binding email}"
+            Placeholder="Name..."
+               TextColor="White"
+               x:Name="NameInput"
+               
+               />
+
+
+
+        <Label Grid.Row="4" 
+               Grid.ColumnSpan="2"
+                Text="Password:"
+                
+                FontSize="Medium"
+                TextColor="White"
+                HorizontalOptions="Start" />
+
+
+        <!--<Line Grid.Row="3" Grid.ColumnSpan="2"  Stroke="Red" VerticalOptions="Center" HorizontalOptions="Center"
+      X2="5000"  />-->
+
+        <Entry Grid.Row="5" 
+               Grid.ColumnSpan="2"
+               Placeholder="Password..."
+               Text="{Binding password}"
+                   IsPassword="True"
+               TextColor="White"
+               x:Name="PassInput"
+                  />
+
+        <Label Grid.Row="6" 
+               Grid.ColumnSpan="2"
+                Text=""
+                x:Name="ErrorLabel"
+                FontSize="15"
+                TextColor="Red"
+                HorizontalOptions="Center" />
+        <Button
+            Grid.Row="7" 
+               Grid.ColumnSpan="2"
+                x:Name="RegisterBtn"
+                Text="Register"
+                Command="{Binding RegisterUser}"
+                SemanticProperties.Hint="Loggs you in"
+                HorizontalOptions="Center" 
+                BackgroundColor="#001aab"
+                TextColor="White"
+                WidthRequest="300" />
+
+        <Button
+            Grid.Row="9" 
+               Grid.ColumnSpan="2"
+                x:Name="LoginBtn"
+                Text="Back to login"
+                SemanticProperties.Hint="About page"
+                HorizontalOptions="Center" 
+                Command="{Binding LoginBtnBack}"
+                BackgroundColor="#001aab"
+                TextColor="White"
+                WidthRequest="300" />
+        <!--<Button
+            Grid.Row="10" 
+               Grid.ColumnSpan="2"
+                x:Name="TestBtn"
+                Text="TEST"
+                SemanticProperties.Hint="About page"
+                Command="{Binding TestBtn}"
+                HorizontalOptions="Center" 
+                BackgroundColor="LightGray"
+                TextColor="White"
+                WidthRequest="300" />-->
+
+
+        <Grid x:Name="LoadingOverlay"
+      Grid.RowSpan="10"
+      Grid.ColumnSpan="2"
+      BackgroundColor="Black"
+      Opacity="0.75"
+      IsVisible="{Binding IsLoadingVisible}"
+      HorizontalOptions="FillAndExpand"
+      VerticalOptions="FillAndExpand">
+
+            <VerticalStackLayout
+        HorizontalOptions="Center"
+        VerticalOptions="Center">
+                <ActivityIndicator 
+            IsRunning="True"
+            IsVisible="True"
+            Color="DarkGray"
+            HorizontalOptions="Center"
+            VerticalOptions="Center" 
+            Margin="5"/>
+                <!-- Content -->
+                <Label x:Name="ResultLabel"
+       Text="Registering..."
+           TextColor="White"
+       HorizontalOptions="Center"
+       VerticalOptions="Center"/>
+            </VerticalStackLayout>
+        </Grid>
+
+    </Grid>
+
+</ContentPage>

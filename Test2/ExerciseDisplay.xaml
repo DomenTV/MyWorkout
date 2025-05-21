@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8" ?>
+    <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Test2.ExerciseDisplay"
+             Title=""
+             xmlns:local="clr-namespace:Test2.ViewModels"
+             x:DataType="local:ExerciseDisplayViewModel"
+             Shell.FlyoutBehavior="Disabled"
+             Shell.NavBarIsVisible="False"
+                 NavigationPage.HasNavigationBar="False"
+             >
+    <Grid>
+        <ScrollView VerticalOptions="FillAndExpand">
+        <VerticalStackLayout HorizontalOptions="FillAndExpand" Margin="20">
+
+                <Button
+                Text="How to pick the right weight?"
+                Command="{Binding HowToBtn}"
+                HorizontalOptions="Center" 
+                WidthRequest="{Binding width}"
+                    BackgroundColor="Black"
+                    BorderColor="Black"
+                    TextColor="LightBlue"
+                    />
+
+            <ListView HasUnevenRows="True" ItemsSource="{Binding exerciseList}" x:Name="exerciseListView" HorizontalOptions="Center" SelectionMode="None" VerticalScrollBarVisibility="Never">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            
+                            <StackLayout>
+                                <Label></Label>
+                                <!--<Label></Label>
+                                <Label></Label>
+                                <Label></Label>-->
+                                <!-- Name and Reps Grid -->
+                                <Grid RowDefinitions="Auto"
+                          ColumnDefinitions=".5*, .5*"
+                          Padding="25"
+                          BackgroundColor="DarkBlue">
+                                    <Label Text="{Binding name}" FontSize="Medium" HorizontalOptions="Start" VerticalOptions="Center" Grid.Column="0"/>
+                                    <Label Text="{Binding repsandsets}" Grid.Column="1" FontSize="Large"  HorizontalOptions="End" VerticalOptions="Center"/>
+                                </Grid>
+
+                                <!-- Exercise Image -->
+                                <Image IsAnimationPlaying="True" Source="{Binding exerciseImage3}" HeightRequest="250"  WidthRequest="{Binding width}" VerticalOptions="Fill" HorizontalOptions="Fill"  Aspect="AspectFill"/>
+                                
+                                <!-- Toggle Button -->
+                                <Button Text="Toggle more info"
+                                Command="{Binding BindingContext.ToggleInfoCommand, Source={x:Reference exerciseListView}}"
+                                CommandParameter="{Binding}"
+                                WidthRequest="{Binding width}"
+                                HorizontalOptions="Center"
+                                BackgroundColor="Transparent"
+                                        TextColor="White"
+                                        FontAttributes="Bold"
+                                        Padding="5"
+                                        CharacterSpacing="5"
+                                        BorderColor="Transparent"
+                                        BorderWidth="{Binding width}"
+                                        Margin="5"/>
+                                
+                                
+
+                                <!-- TextTip and Image Grid (Initially Hidden) -->
+                                <StackLayout IsVisible="{Binding IsInfoVisible}" >
+                                    <Label Text="{Binding texttip}" Padding="10"/>
+
+                                    <Grid>
+                                        <Image Source="{Binding muscleTemplate}" WidthRequest="{Binding width}" HorizontalOptions="Center"/>
+                                        <Image Source="{Binding muscleImage3}" WidthRequest="{Binding width}" HorizontalOptions="Center" BackgroundColor="Transparent" InputTransparent="True"/>
+                                    </Grid>
+                                    <Label></Label>
+                                    <Label></Label>
+                                </StackLayout>
+
+
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+
+            <!--<Grid>
+                <ListView Grid.Row="0" ItemsSource="{Binding bottomMuscleList}" x:Name="exerciseListView2" HorizontalOptions="Center" SelectionMode="None" VerticalScrollBarVisibility="Never">
+                    <ListView.ItemTemplate Grid.Row="0">
+                        <DataTemplate>
+                            <ViewCell Grid.Row="0">
+                                <Image Grid.Row="0" Source="{Binding}" WidthRequest="{Binding width}" HorizontalOptions="Center" BackgroundColor="Transparent" InputTransparent="True"/>
+                            </ViewCell>
+                            
+                        </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            </Grid>-->
+
+            <Label></Label>
+            <Label Text="Muscles you've trained in this session:" HorizontalOptions="Center" FontSize="Medium"></Label>
+            <Grid Padding="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Image Source="{Binding muscleBottomImage1}" Grid.Row="0" InputTransparent="True"/>
+                <Image Source="{Binding muscleBottomImage2}" Grid.Row="0" InputTransparent="True"/>
+                <Image Source="{Binding muscleBottomImage3}" Grid.Row="0" InputTransparent="True"/>
+                <Image Source="{Binding muscleBottomImage4}" Grid.Row="0" InputTransparent="True"/>
+                <Image Source="{Binding muscleBottomImage5}" Grid.Row="0" InputTransparent="True"/>
+                <Image Source="{Binding muscleBottomImage6}" Grid.Row="0" InputTransparent="True"/>
+                <Image Source="{Binding muscleBottomImage7}" Grid.Row="0" InputTransparent="True"/>
+                <Image Source="{Binding muscleBottomImage8}" Grid.Row="0" InputTransparent="True"/>
+                <Image Source="{Binding muscleBottomImage9}" Grid.Row="0" InputTransparent="True"/>
+                <Image Source="{Binding muscleBottomImage10}" Grid.Row="0" InputTransparent="True"/>
+            </Grid>
+            <!--<Label Text="{Binding theTime}" FontSize="Medium" HorizontalTextAlignment="Center" x:Name="Timer"></Label>
+            <Entry
+               Text="{Binding theTime}"
+            Placeholder="Name..."
+               TextColor="Red"
+               x:Name="NameInput"
+               
+               />-->
+            <Label Text="{Binding TimeDisplayed}"
+       FontSize="Large"
+       HorizontalOptions="Center"
+       FontAttributes="Bold"
+       TextColor="Red"/>
+            <Picker x:Name="IntencityPicker" Title="How was today's workout?" SelectedItem="{Binding IntensityRating}"  Margin="15" VerticalTextAlignment="Center" TextColor="White">
+                <Picker.Items>
+                    <x:String>Way too easy</x:String>
+                    <x:String>Easy</x:String>
+                    <x:String>Just right</x:String>
+                    <x:String>Hard</x:String>
+                    <x:String>Way too hard</x:String>
+                </Picker.Items>
+            </Picker>
+
+            
+            <Button
+                Text="Stop"
+                Command="{Binding StopButton}"
+                SemanticProperties.Hint="Loggs you in"
+
+                HorizontalOptions="Center" 
+                BackgroundColor="DarkRed"
+                TextColor="White"
+                WidthRequest="300" />
+            
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+        <Grid x:Name="LoadingOverlay"
+
+BackgroundColor="Black"
+Opacity="0.75"
+IsVisible="{Binding IsLoadingVisible}"
+HorizontalOptions="FillAndExpand"
+VerticalOptions="FillAndExpand">
+
+            <VerticalStackLayout
+  HorizontalOptions="Center"
+  VerticalOptions="Center">
+                <ActivityIndicator 
+      IsRunning="True"
+      IsVisible="True"
+      Color="DarkGray"
+      HorizontalOptions="Center"
+      VerticalOptions="Center" 
+      Margin="5"/>
+                <!-- Content -->
+                <Label x:Name="ResultLabel"
+ Text="Saving workout data..."
+     TextColor="White"
+ HorizontalOptions="Center"
+ VerticalOptions="Center"/>
+            </VerticalStackLayout>
+        </Grid>
+
+    </Grid>
+</ContentPage>

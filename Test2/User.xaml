@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Test2.User"
+             Title="User"
+             xmlns:local="clr-namespace:Test2.ViewModels"
+             x:DataType="local:UserViewModel"
+             Shell.FlyoutBehavior="Disabled"
+             Shell.NavBarIsVisible="False"
+             NavigationPage.HasNavigationBar="False">
+    <Grid
+     RowDefinitions="0.92*,0.08*">
+        <ScrollView Grid.Row="0">
+            <VerticalStackLayout>
+                <Label></Label>
+                <Label x:Name="UserNameLabel" HorizontalOptions="CenterAndExpand"  Grid.Column="0" FontAttributes="Bold" FontSize="35" TextColor="#4287f5"/>
+
+                <Label></Label>
+                <Grid
+                            RowDefinitions="Auto"
+                            ColumnDefinitions=".25*, .25*, .25*, .25*"
+                            Padding="5"
+                            >
+                    <Label Text="Body Part" HorizontalOptions="Center" Grid.Column="0" FontAttributes="Bold"/>
+                    <Label Text="Workout type" HorizontalOptions="Center" Grid.Column="1" FontAttributes="Bold"/>
+                    <Label Text="Level" HorizontalOptions="Center" Grid.Column="2" FontAttributes="Bold"/>
+                    <Label Text="Date" HorizontalOptions="Center" Grid.Column="3" FontAttributes="Bold"/>
+
+                </Grid>
+                <ListView ItemsSource="{Binding WorkoutList}" x:Name="exerciseListView" SelectionMode="None" HasUnevenRows="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout HorizontalOptions="FillAndExpand">
+                                    <!-- Tap to Toggle -->
+                                    <StackLayout GestureRecognizers="{TapGestureRecognizer Command={Binding Source={RelativeSource AncestorType={x:Type local:UserViewModel}}, Path=ToggleWorkoutDetailsCommand}, CommandParameter={Binding}}">
+                                        <Grid RowDefinitions="Auto"
+                              ColumnDefinitions=".25*, .25*, .25*, .25*"
+                              Padding="5">
+                                            <Label Text="{Binding bodyPart}" HorizontalOptions="Center" Grid.Column="0" TextColor="#c9c9c9"/>
+                                            <Label Text="{Binding oftype}" HorizontalOptions="Center" Grid.Column="1" TextColor="#c9c9c9"/>
+                                            <Label Text="{Binding level}" HorizontalOptions="Center" Grid.Column="2" TextColor="#c9c9c9"/>
+                                            <Label Text="{Binding date}" HorizontalOptions="Center" Grid.Column="3" TextColor="#c9c9c9"/>
+                                        </Grid>
+                                    </StackLayout>
+
+                                    <StackLayout IsVisible="{Binding IsDetailsVisible}" BackgroundColor="#080045">
+                                        <!-- Extra Details -->
+                                        <Grid RowDefinitions="Auto"
+                              ColumnDefinitions=".25*, .25*, .25*, .25*"
+                              Padding="5" >
+
+                                            <StackLayout HorizontalOptions="Center" Grid.Column="0">
+                                                <Label HorizontalOptions="Center" Text="Equipment:" FontAttributes="Bold"/>
+                                                <Label HorizontalOptions="Center" Grid.Row="1" Text="{Binding equipment}" />
+                                            </StackLayout>
+
+                                            <StackLayout HorizontalOptions="Center" Grid.Column="1">
+                                                <Label HorizontalOptions="Center" Text="Intensity:" FontAttributes="Bold"/>
+                                                <Label HorizontalOptions="Center" Text="{Binding intensity}" />
+                                            </StackLayout>
+
+                                            <StackLayout HorizontalOptions="Center" Grid.Column="2">
+                                                <Label HorizontalOptions="Center" Text="Duration:" FontAttributes="Bold"/>
+                                                <Label HorizontalOptions="Center" Text="{Binding duration}" />
+                                            </StackLayout>
+
+                                            <StackLayout HorizontalOptions="Center" Grid.Column="3">
+                                                <Label HorizontalOptions="Center" Text="Exercises:" FontAttributes="Bold"/>
+                                                <Label HorizontalOptions="Center" Text="{Binding numExercises}" />
+                                            </StackLayout>
+
+                                        </Grid>
+                                        <Button Text="View Workout" 
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:UserViewModel}}, Path=ShowWorkoutIDCommand}" 
+                                CommandParameter="{Binding}" 
+                                Padding="10"
+                                Background="Transparent"
+                                        BorderColor="Transparent"
+                                        TextColor="LightBlue"/>
+                                    </StackLayout>
+
+
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <StackLayout Grid.Row="1" BackgroundColor="Transparent" VerticalOptions="End" Padding="10, 0, 10, 10">
+
+            <!--<Label HeightRequest="10"></Label>-->
+            <!--</StackLayout>
+<StackLayout>-->
+            <Grid Margin="0, 0, 0, 5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30*" />
+                    <ColumnDefinition Width="30*" />
+                    <ColumnDefinition Width="30*" />
+                </Grid.ColumnDefinitions>
+                <Button FontAttributes="Bold" Text="Profile" BackgroundColor="#282828" TextColor="Azure" Command="{Binding ProfileButton}" Grid.Column="0" Margin="0, 0, 5, 0" HeightRequest="40">
+                </Button>
+                <Button Text="Workout" BackgroundColor="#141414" TextColor="Azure" Command="{Binding ExercisesButton}" Grid.Column="1" Margin="5, 0, 5, 0" FontAttributes="Bold" ></Button>
+                <Button FontAttributes="Bold" Text="FAQ" BackgroundColor="#141414" TextColor="Azure" Command="{Binding qaButton}" Grid.Column="2" Margin="5, 0, 0, 0"></Button>
+                <!--<ImageButton Source="C:\Users\theex\Desktop\PortaliData\user.png" Command="{Binding StartButton}" Grid.Column="0"></ImageButton>
+        <Button Text="Profile" BackgroundColor="Black" TextColor="Azure" Command="{Binding ProfileButton}" Grid.Column="1"></Button>
+        <ImageButton Source="http://cdn.onlinewebfonts.com/svg/img_568656.png" HeightRequest="10" WidthRequest="10" Command="{Binding StartButton}" Grid.Column="2"></ImageButton>-->
+            </Grid>
+
+        </StackLayout>
+
+
+        <Grid x:Name="LoadingOverlay"
+Grid.RowSpan="2"
+BackgroundColor="Black"
+Opacity="0.75"
+IsVisible="{Binding IsLoadingVisible}"
+HorizontalOptions="FillAndExpand"
+VerticalOptions="FillAndExpand">
+
+            <VerticalStackLayout
+  HorizontalOptions="Center"
+  VerticalOptions="Center">
+                <ActivityIndicator 
+      IsRunning="True"
+      IsVisible="True"
+      Color="DarkGray"
+      HorizontalOptions="Center"
+      VerticalOptions="Center" 
+      Margin="5"/>
+                <!-- Content -->
+                <Label x:Name="ResultLabel"
+ Text="Loading..."
+     TextColor="White"
+ HorizontalOptions="Center"
+ VerticalOptions="Center"/>
+            </VerticalStackLayout>
+        </Grid>
+
+    </Grid>
+</ContentPage>

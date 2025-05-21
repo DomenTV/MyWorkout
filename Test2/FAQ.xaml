@@ -1,0 +1,120 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Test2.FAQ"
+             Title="FAQ"
+             xmlns:local="clr-namespace:Test2.ViewModels"
+             Shell.FlyoutBehavior="Disabled"
+             Shell.NavBarIsVisible="False"
+             NavigationPage.HasNavigationBar="False">
+    <Grid
+    RowDefinitions="0.92*,0.08*">
+        <Grid>
+            <ScrollView>
+                <VerticalStackLayout Margin="20">
+
+                    <Label Text="Frequently Asked Questions"
+       FontAttributes="Bold"
+       FontSize="35"
+       TextColor="#4287f5"
+                   HorizontalTextAlignment="Center"/>
+                    <Label></Label>
+                    <!-- AI Question Input -->
+                    <Entry Text="{Binding AIQuestion, Mode=TwoWay}"
+                   Placeholder="Write your question in here..."
+                   HeightRequest="60"
+                   BackgroundColor="LightGray"
+                   TextColor="Black" />
+
+                    <!-- Ask AI Trainer Button -->
+                    <Button Text="Ask AI Trainer"
+                    Command="{Binding AskAITrainerCommand}"
+                    BackgroundColor="Blue"
+                    TextColor="White"
+                    HeightRequest="50" />
+
+
+
+                    <Label></Label>
+                    <ListView ItemsSource="{Binding QuestionsList}" 
+                      HasUnevenRows="True"
+                      SeparatorVisibility="None">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout Padding="10">
+                                        <Label Text="{Binding Question}"
+                                       FontAttributes="Bold"
+                                       TextColor="#4287f5">
+                                            <Label.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type local:FAQViewModel}}, Path=ToggleAnswerCommand}"
+                                                              CommandParameter="{Binding .}" />
+                                            </Label.GestureRecognizers>
+                                        </Label>
+                                        <Label Text="{Binding Answer}"
+                                       TextColor="Gray"
+                                       IsVisible="{Binding IsAnswerVisible}" />
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </VerticalStackLayout>
+            </ScrollView>
+
+            <Grid x:Name="LoadingOverlay"
+
+BackgroundColor="Black"
+Opacity="0.75"
+IsVisible="{Binding IsLoadingVisible}"
+HorizontalOptions="FillAndExpand"
+VerticalOptions="FillAndExpand">
+
+                <VerticalStackLayout
+  HorizontalOptions="Center"
+  VerticalOptions="Center">
+                    <ActivityIndicator 
+      IsRunning="True"
+      IsVisible="True"
+      Color="DarkGray"
+      HorizontalOptions="Center"
+      VerticalOptions="Center" 
+      Margin="5"/>
+                    <!-- Content -->
+                    <Label x:Name="ResultLabel"
+ Text="Loading..."
+     TextColor="White"
+ HorizontalOptions="Center"
+ VerticalOptions="Center"/>
+                </VerticalStackLayout>
+            </Grid>
+
+        </Grid>
+
+        <StackLayout Grid.Row="1" BackgroundColor="Transparent" VerticalOptions="End" Padding="10, 0, 10, 10">
+
+            <!--<Label HeightRequest="10"></Label>-->
+            <!--</StackLayout>
+<StackLayout>-->
+            <Grid Margin="0, 0, 0, 5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30*" />
+                    <ColumnDefinition Width="30*" />
+                    <ColumnDefinition Width="30*" />
+                </Grid.ColumnDefinitions>
+                <Button FontAttributes="Bold" Text="Profile" BackgroundColor="#141414" TextColor="Azure" Command="{Binding ProfileButton}" Grid.Column="0" Margin="0, 0, 5, 0" HeightRequest="40">
+                </Button>
+                <Button Text="Workout" BackgroundColor="#141414" TextColor="Azure" Command="{Binding ExercisesButton}" Grid.Column="1" Margin="5, 0, 5, 0" FontAttributes="Bold" ></Button>
+                <Button FontAttributes="Bold" Text="FAQ" BackgroundColor="#282828" TextColor="Azure" Command="{Binding qaButton}" Grid.Column="2" Margin="5, 0, 0, 0"></Button>
+                <!--<ImageButton Source="C:\Users\theex\Desktop\PortaliData\user.png" Command="{Binding StartButton}" Grid.Column="0"></ImageButton>
+        <Button Text="Profile" BackgroundColor="Black" TextColor="Azure" Command="{Binding ProfileButton}" Grid.Column="1"></Button>
+        <ImageButton Source="http://cdn.onlinewebfonts.com/svg/img_568656.png" HeightRequest="10" WidthRequest="10" Command="{Binding StartButton}" Grid.Column="2"></ImageButton>-->
+            </Grid>
+
+        </StackLayout>
+
+
+    </Grid>
+</ContentPage>

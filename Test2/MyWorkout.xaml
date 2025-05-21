@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Test2.MyWorkout"
+             Title="MyWorkout"
+                xmlns:local="clr-namespace:Test2.ViewModels"
+                x:DataType="local:MyWorkoutViewModel"
+             Shell.FlyoutBehavior="Disabled"
+             Shell.NavBarIsVisible="False"
+             NavigationPage.HasNavigationBar="False">
+    <Grid
+        RowDefinitions="0.80*,0.20*">
+        <ScrollView Grid.Row="0">
+        <StackLayout HorizontalOptions="FillAndExpand" Padding="10">
+            <Label TextColor="DarkGray" Text="Equipment" Padding="0, 15, 0, 7"></Label>
+            <Picker x:Name="EquipmentPicker" SelectedItem="{Binding equipment}" TextColor="White">
+                <Picker.Items>
+                    <x:String>Basic gear</x:String>
+                    <x:String>No gear</x:String>
+                    <x:String>Fitness gear</x:String>
+                </Picker.Items>
+            </Picker>
+            <Label TextColor="DarkGray" Text="Workout type" Padding="0, 15, 0, 7"></Label>
+            <Picker x:Name="WorkoutTypetPicker" SelectedItem="{Binding workout_type}" TextColor="White">
+                <Picker.Items>
+                    <x:String>Strength</x:String>
+                    <x:String>Cardio</x:String>
+                    <x:String>Endurance</x:String>
+                </Picker.Items>
+            </Picker>
+            <Label TextColor="DarkGray" Text="Body part" Padding="0, 15, 0, 7"></Label>
+            <Picker x:Name="BodyPartPicker" SelectedItem="{Binding body_part}" TextColor="White">
+                <Picker.Items>
+                    <x:String>Full body</x:String>
+                    <x:String>Upper body</x:String>
+                    <x:String>Core</x:String>
+                    <x:String>Lower body</x:String>
+                </Picker.Items>
+            </Picker>
+            <Label TextColor="DarkGray" Text="Difficulty" Padding="0, 15, 0, 7"></Label>
+            <Picker x:Name="DifficultyPicker" SelectedItem="{Binding difficulty}" TextColor="White">
+                <Picker.Items>
+                    <x:String>Level I - Light</x:String>
+                    <x:String>Level II - Easy</x:String>
+                    <x:String>Level III - Normal</x:String>
+                    <x:String>Level IV - Hard</x:String>
+                    <x:String>Level V - Advanced</x:String>
+                    <x:String>Level VI - Extreme</x:String>
+                </Picker.Items>
+            </Picker>
+            <Label TextColor="DarkGray" Text="Number of exercises" Padding="0, 15, 0, 7"></Label>
+            <Picker x:Name="NumberExercisesPicker" SelectedItem="{Binding number_of_exercises}" TextColor="White">
+                <Picker.Items>
+                    <x:String>1</x:String>
+                    <x:String>3</x:String>
+                    <x:String>6</x:String>
+                    <x:String>9</x:String>
+                </Picker.Items>
+            </Picker>
+            <Label TextColor="DarkGray" Text="Energy level" Padding="0, 15, 0, 7"></Label>
+            <Picker x:Name="DailyFeel"  SelectedItem="{Binding dailyFeel}" TextColor="White">
+                <Picker.Items>
+                    <x:String>Very Poor</x:String>
+                    <x:String>Below Average</x:String>
+                    <x:String>Average</x:String>
+                    <x:String>Above Average</x:String>
+                    <x:String>Outstanding</x:String>
+                </Picker.Items>
+            </Picker>
+            <Label></Label>
+
+            <StackLayout Padding="0">
+                <!-- Injury Selection Button -->
+                <Button x:Name="InjuryButton" Text="Injuries (0)" Clicked="ToggleInjuryVisibility"/>
+
+                <!-- Injury Checkbox Container -->
+                    <StackLayout x:Name="InjuryCheckboxContainer" IsVisible="False" Padding="5" >
+                        <StackLayout Orientation="Horizontal">
+                            <CheckBox x:Name="NeckInjury" IsChecked="{Binding neckInjury}" CheckedChanged="OnInjuryCheckedChanged"/>
+                            <Label Text="Neck"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <CheckBox x:Name="BackInjury" IsChecked="{Binding backInjury}" CheckedChanged="OnInjuryCheckedChanged"/>
+                            <Label Text="Back"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <CheckBox x:Name="ChestInjury" IsChecked="{Binding chestInjury}" CheckedChanged="OnInjuryCheckedChanged"/>
+                            <Label Text="Chest"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <CheckBox x:Name="ArmInjury" IsChecked="{Binding armInjury}" CheckedChanged="OnInjuryCheckedChanged"/>
+                            <Label Text="Arms"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <CheckBox x:Name="WristInjury" IsChecked="{Binding wristInjury}" CheckedChanged="OnInjuryCheckedChanged"/>
+                            <Label Text="Wrist"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <CheckBox x:Name="AbdominalInjury" IsChecked="{Binding abdominalInjury}" CheckedChanged="OnInjuryCheckedChanged"/>
+                            <Label Text="Abdominal"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <CheckBox x:Name="LegInjury" IsChecked="{Binding legInjury}" CheckedChanged="OnInjuryCheckedChanged"/>
+                            <Label Text="Leg"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <CheckBox x:Name="AnkleInjury" IsChecked="{Binding ankleInjury}" CheckedChanged="OnInjuryCheckedChanged"/>
+                            <Label Text="Ankle"/>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+                <Label HeightRequest="-1"></Label>
+                <Label Text="Recommendations" TextColor="DarkGray"/>
+                <Switch IsToggled="{Binding recommendations}" ThumbColor="#001aab" OnColor="LightBlue" HorizontalOptions="StartAndExpand"/>
+
+                <!--<Label></Label>-->
+
+           <!--This is where the buttons used to be-->
+
+
+
+
+
+
+        </StackLayout>
+    </ScrollView>
+
+        <StackLayout Grid.Row="1" BackgroundColor="Transparent" VerticalOptions="End" Padding="10">
+
+            <Button
+        x:Name="LoginBtn"
+        Text="START"
+        Command="{Binding StartButton}"
+            FontAttributes="Bold" FontSize="35"
+        HorizontalOptions="Fill" 
+        BackgroundColor="#001aab"
+        TextColor="White"
+        
+         />
+            <Label HeightRequest="10"></Label>
+            <!--</StackLayout>
+<StackLayout>-->
+            <Grid Margin="0, 0, 0, 5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30*" />
+                    <ColumnDefinition Width="30*" />
+                    <ColumnDefinition Width="30*" />
+                </Grid.ColumnDefinitions>
+                <Button FontAttributes="Bold" Text="Profile" BackgroundColor="#141414" TextColor="Azure" Command="{Binding ProfileButton}" Grid.Column="0" Margin="0, 0, 5, 0" HeightRequest="40">
+                </Button>
+                <Button Text="Workout" BackgroundColor="#282828" TextColor="Azure" Command="{Binding ExercisesButton}" Grid.Column="1" Margin="5, 0, 5, 0" FontAttributes="Bold"></Button>
+                <Button FontAttributes="Bold" Text="{Binding qa}" BackgroundColor="#141414" TextColor="Azure" Command="{Binding qaButton}" Grid.Column="2" Margin="5, 0, 0, 0"></Button>
+                <!--<ImageButton Source="C:\Users\theex\Desktop\PortaliData\user.png" Command="{Binding StartButton}" Grid.Column="0"></ImageButton>
+        <Button Text="Profile" BackgroundColor="Black" TextColor="Azure" Command="{Binding ProfileButton}" Grid.Column="1"></Button>
+        <ImageButton Source="http://cdn.onlinewebfonts.com/svg/img_568656.png" HeightRequest="10" WidthRequest="10" Command="{Binding StartButton}" Grid.Column="2"></ImageButton>-->
+            </Grid>
+
+        </StackLayout>
+        
+        
+    <Grid x:Name="LoadingOverlay"
+Grid.RowSpan="2"
+BackgroundColor="Black"
+Opacity="0.75"
+IsVisible="{Binding IsLoadingVisible}"
+HorizontalOptions="FillAndExpand"
+VerticalOptions="FillAndExpand">
+
+        <VerticalStackLayout
+  HorizontalOptions="Center"
+  VerticalOptions="Center">
+            <ActivityIndicator 
+      IsRunning="True"
+      IsVisible="True"
+      Color="DarkGray"
+      HorizontalOptions="Center"
+      VerticalOptions="Center" 
+      Margin="5"/>
+            <!-- Content -->
+            <Label x:Name="ResultLabel"
+ Text="Loading..."
+     TextColor="White"
+ HorizontalOptions="Center"
+ VerticalOptions="Center"/>
+        </VerticalStackLayout>
+    </Grid>
+    </Grid>
+
+</ContentPage>

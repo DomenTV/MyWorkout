@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Test2.Syllabus_page"
+             Title="Syllabus_page"
+             xmlns:local="clr-namespace:Test2.ViewModels"
+             x:DataType="local:SyllabusPageViewModel"
+             NavigationPage.HasNavigationBar="False">
+
+    <ScrollView>
+        
+            <Grid
+        RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto"
+        ColumnDefinitions=".50*, .50*"
+        Padding="10"
+        RowSpacing="30"
+        BackgroundColor="#006385">
+
+        <Label Grid.ColumnSpan="2"
+               
+                Text="3. letnik"
+
+                FontSize="35"
+                TextColor="White"
+                HorizontalOptions="Center" 
+
+                />
+        <Label Grid.ColumnSpan="2"
+               Grid.Row="1"
+                Text="Zimski"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="25"
+                TextColor="White"
+                HorizontalOptions="Center" 
+                />
+        <Label 
+               Grid.Row="2" Grid.Column="0"
+                Text="Predmet"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="30"
+                TextColor="White"
+                HorizontalOptions="Center" 
+                />
+        <Label 
+               Grid.Row="2" Grid.Column="1"
+                Text="ECTS"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="30"
+                TextColor="White"
+                HorizontalOptions="Center" 
+                />
+        <Label 
+               Grid.Row="3" Grid.Column="0"
+                Text="null"
+                x:Name="n1"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="Small"
+                TextColor="White"
+                HorizontalOptions="Center" 
+                />
+        <Label 
+               Grid.Row="3" Grid.Column="1"
+                Text="5"
+                x:Name="e1"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="Small"
+                TextColor="White"
+                HorizontalOptions="Center" 
+                />
+        <Line Grid.Row="4" Grid.ColumnSpan="2"  Stroke="white" VerticalOptions="Center" HorizontalOptions="Center" X2="5000" />
+        <Label 
+               Grid.Row="5" Grid.Column="0"
+                Text="Podatkovne Baze II"
+                x:Name="n2"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="Small"
+                TextColor="White"
+                HorizontalOptions="Center" 
+                />
+        <Label 
+               Grid.Row="5" Grid.Column="1"
+                Text="5"
+                x:Name="e2"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="Small"
+                TextColor="White"
+                HorizontalOptions="Center" 
+                />
+        <Line Grid.Row="6" Grid.ColumnSpan="2"  Stroke="white" VerticalOptions="Center" HorizontalOptions="Center" X2="5000" />
+        <Label 
+               Grid.Row="7" Grid.Column="0"
+                Text="Sistemska podpora IKT"
+                x:Name="n3"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="Small"
+                TextColor="White"
+                HorizontalOptions="Center" 
+                />
+        <Label 
+               Grid.Row="7" Grid.Column="1"
+                Text="5"
+                x:Name="e3"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="Small"
+                TextColor="White"
+                HorizontalOptions="Center" 
+                />
+        <Line Grid.Row="8" Grid.ColumnSpan="2"  Stroke="white" VerticalOptions="Center" HorizontalOptions="Center" X2="5000" />
+        <Label 
+               Grid.Row="9" Grid.Column="0"
+                Text="Podatkovno skladiščenje"
+                x:Name="n4"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="Small"
+                TextColor="White"
+                HorizontalOptions="Center" 
+                />
+        <Label 
+               Grid.Row="9" Grid.Column="1"
+                Text="5"
+                x:Name="e4"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="Small"
+                TextColor="White"
+                HorizontalOptions="Center" 
+                />
+        <Line Grid.Row="10" Grid.ColumnSpan="2"  Stroke="white" VerticalOptions="Center" HorizontalOptions="Center" X2="5000" />
+        <Label 
+               Grid.Row="11" Grid.Column="0"
+                Text="Razvoj mobilnih rešitev"
+                x:Name="n5"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="Small"
+                TextColor="White"
+                HorizontalOptions="Center" 
+                />
+        <Label 
+               Grid.Row="11" Grid.Column="1"
+                Text="5"
+                x:Name="e5"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="Small"
+                TextColor="White"
+                HorizontalOptions="Center" 
+                />
+        <Line Grid.Row="12" Grid.ColumnSpan="2"  Stroke="white" VerticalOptions="Center" HorizontalOptions="Center" X2="5000" />
+        <Label 
+               Grid.Row="13" Grid.Column="0"
+                Text="Portali in sistemi znanja"
+                x:Name="n6"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="Small"
+                TextColor="White"
+                HorizontalOptions="Center" 
+                />
+        <Label 
+               Grid.Row="13" Grid.Column="1"
+                Text="5"
+                x:Name="e6"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="Small"
+                TextColor="White"
+                HorizontalOptions="Center" 
+                />
+        <Line Grid.Row="14" Grid.ColumnSpan="2"  Stroke="white" VerticalOptions="Center" HorizontalOptions="Center" X2="5000" />
+        <Label Grid.ColumnSpan="2"
+               Grid.Row="15"
+                Text="Poletni"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="25"
+                TextColor="White"
+                HorizontalOptions="Center" 
+                />
+        <Label 
+               Grid.Row="16" Grid.Column="0"
+                Text="Predmet"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="30"
+                TextColor="White"
+                HorizontalOptions="Center" 
+                />
+        <Label 
+               Grid.Row="16" Grid.Column="1"
+                Text="ECTS"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="30"
+                TextColor="White"
+                HorizontalOptions="Center" 
+                />
+        <Label 
+               Grid.Row="17" Grid.Column="0"
+                Text="Diplomsko delo"
+                x:Name="n7"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="Small"
+                TextColor="White"
+                HorizontalOptions="Center" 
+                />
+        <Label 
+               Grid.Row="17" Grid.Column="1"
+                Text="10"
+                x:Name="e7"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="Small"
+                TextColor="White"
+                HorizontalOptions="Center" 
+                />
+        <Line Grid.Row="18" Grid.ColumnSpan="2"  Stroke="white" VerticalOptions="Center" HorizontalOptions="Center" X2="5000" />
+        <Label 
+               Grid.Row="19" Grid.Column="0"
+                Text="Praktično usposabljanje"
+                x:Name="n8"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="Small"
+                TextColor="White"
+                HorizontalOptions="Center" 
+                />
+        <Label 
+               Grid.Row="19" Grid.Column="1"
+                Text="15"
+                x:Name="e8"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="Small"
+                TextColor="White"
+                HorizontalOptions="Center" 
+                />
+        <Line Grid.Row="20" Grid.ColumnSpan="2"  Stroke="white" VerticalOptions="Center" HorizontalOptions="Center" X2="5000" />
+        <Label 
+               Grid.Row="21" Grid.Column="0"
+                Text="Sociološki in poklicni vidiki"
+                x:Name="n9"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="Small"
+                TextColor="White"
+                HorizontalOptions="Center" 
+                />
+        <Label 
+               Grid.Row="21" Grid.Column="1"
+                Text="5"
+                x:Name="e9"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="Small"
+                TextColor="White"
+                HorizontalOptions="Center" 
+                />
+            <Line Grid.Row="22" Grid.ColumnSpan="2"  Stroke="white" VerticalOptions="Center" HorizontalOptions="Center" X2="5000" />
+
+            <Button
+            Grid.Row="23" 
+               Grid.ColumnSpan="2"
+                x:Name="Test"
+                Text="Employees"
+                SemanticProperties.Hint="About page"
+                Command="{Binding TestBtn}"
+                HorizontalOptions="Center" 
+                BackgroundColor="DarkGray"
+                TextColor="White"
+                WidthRequest="300" />
+        </Grid>
+        
+    </ScrollView>
+
+</ContentPage>

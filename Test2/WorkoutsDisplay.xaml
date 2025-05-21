@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Test2.WorkoutsDisplay"
+             Title=""
+             xmlns:local="clr-namespace:Test2.ViewModels"
+             x:DataType="local:WorkoutsDisplayViewModel"
+             Shell.FlyoutBehavior="Disabled"
+             Shell.NavBarIsVisible="False"
+             NavigationPage.HasNavigationBar="False"
+             >
+    <ScrollView>
+        <VerticalStackLayout HorizontalOptions="Center" Margin="20">
+
+            <Button
+                Text="Info"
+                Command="{Binding HowToBtn}"
+                HorizontalOptions="Center" 
+                WidthRequest="{Binding width}"
+                    BackgroundColor="Black"
+                    BorderColor="Black"
+                    TextColor="LightBlue"
+                    />
+            <Label></Label>
+            <ListView ItemsSource="{Binding exerciseList}" x:Name="exerciseListView" HorizontalOptions="Center" SelectionMode="None" VerticalScrollBarVisibility="Never">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout  >
+                                <Grid
+                            RowDefinitions="Auto"
+                            ColumnDefinitions=".5*, .5*"
+                            Padding="25"
+                            BackgroundColor="DarkBlue">
+                                    <Label Text="{Binding name}" FontSize="Medium" HorizontalOptions="Center" Grid.Column="0"/>
+                                    <Label Text="{Binding repsandsets}" Grid.Column="1" FontSize="Medium" HorizontalOptions="Center"/>
+                                </Grid>
+                                <Image IsAnimationPlaying="True" Source="{Binding exerciseImage}" WidthRequest="{Binding width}" HorizontalOptions="Center"/>
+
+                                <!--<Label Text="{Binding texttip}" />-->
+                                <Image Source="{Binding muscleImage}" WidthRequest="{Binding width}" HorizontalOptions="Center" BackgroundColor="White" InputTransparent="True"/>
+                                <Label></Label>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

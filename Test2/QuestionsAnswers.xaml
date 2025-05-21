@@ -1,0 +1,36 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+          x:Class="Test2.QuestionsAnswers"
+          Title="QuestionsAnswers"
+          xmlns:local="clr-namespace:Test2.ViewModels"
+          x:DataType="local:QuestionsAnswersViewModel"
+             Shell.FlyoutBehavior="Disabled"
+             Shell.NavBarIsVisible="False"
+             NavigationPage.HasNavigationBar="False">
+    <ScrollView>
+        <VerticalStackLayout Margin="20">
+            <Label
+              Text="Common Questions" TextColor="#4287f5" 
+              FontAttributes="Bold" FontSize="Header"/>
+            <ListView ItemsSource="{Binding questionsANDanswers}"  x:Name="AnswerList">
+                <!--ItemSelected="{Binding OnItemSelectedTapped}-->
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10">
+                                <Label
+              Text="{Binding question}" TextColor="#4287f5" 
+              FontAttributes="Bold" />
+                                <Label
+                Text="{Binding answer}" TextColor="White" x:Name="answerLabel"
+                FontAttributes="Italic"
+                VerticalOptions="End"
+                IsVisible="{Binding IsAnswerVisible}" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
