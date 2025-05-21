@@ -19,7 +19,7 @@ namespace Test2.ViewModels
 
         private string _aiQuestion;
         private bool _isLoadingVisible;
-        private string apiKey = "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"; 
+        private string apiKey = "*"; 
         private string modelName = "mistralai/Mistral-7B-Instruct-v0.3";
         private string apiUrl;
 
